@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lcworld.shopdemo">
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/icon_logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/icon_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".rmq.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.lcworld.shopdemo.rmq.activity.SingleChatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--华丽的分割线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线-->
+        <!--拓商圈start-->
+        <activity
+            android:name="com.lcworld.shopdemo.tsq.ui.main.activity.T_MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--<activity-->
+        <!--android:name="com.lcworld.shopdemo.tsq.ui.gomallorshopping.gomall.activity.TChooseLocationActivity"-->
+        <!--android:screenOrientation="portrait"-->
+        <!--android:theme="@style/AppTheme_chat"-->
+        <!--android:windowSoftInputMode="adjustPan|stateHidden" />-->
+        <!--<activity-->
+        <!--android:name="com.lcworld.shopdemo.tsq.ui.gomallorshopping.gomall.activity.TShopCategoryActivity"-->
+        <!--android:screenOrientation="portrait"-->
+        <!--android:theme="@style/AppTheme_chat"-->
+        <!--android:windowSoftInputMode="adjustPan|stateHidden" />-->
+        <activity
+            android:name="com.lcworld.shopdemo.tsq.ui.gomallorshopping.gomall.activity.T_MarketMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.T_ShopMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--拓商圈end-->
+        <!--华丽的分割线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线-->
+
+        <!--社团圈start-->
+        <activity
+            android:name="com.lcworld.shopdemo.stq.S_MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.headline.activity.NewsSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.headline.activity.NewsDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.video.activity.VideoSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.video.activity.HistoryVideoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.video.activity.VideoDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.nearby.activity.NearbySearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.video.activity.VideoPlayActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.nearby.activity.SwitchLocationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!--社团圈end-->
+
+        <!--华丽的分割线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线-->
+    </application>
+
+</manifest>
