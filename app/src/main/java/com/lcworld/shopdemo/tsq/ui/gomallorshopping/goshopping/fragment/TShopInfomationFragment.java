@@ -2,10 +2,13 @@ package com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.fragment;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
+import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.T_ShopMainActivity;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -16,11 +19,17 @@ import butterknife.Unbinder;
  */
 public class TShopInfomationFragment extends BaseFragment {
 
+    @BindView(R.id.ll_zx)
+    LinearLayout llZx;
+    @BindView(R.id.ll_sp)
+    LinearLayout llSp;
     Unbinder unbinder;
+    private T_ShopMainActivity activity;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        activity = (T_ShopMainActivity) context;
     }
 
     @Override
@@ -50,11 +59,17 @@ public class TShopInfomationFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.ll_back})
+    @OnClick({R.id.zxgd, R.id.spgd, R.id.ll_back, R.id.iv_search})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_back:
                 getActivity().finish();
+                break;
+            case R.id.iv_search:
+                break;
+            case R.id.zxgd:
+                break;
+            case R.id.spgd:
                 break;
         }
     }

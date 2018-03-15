@@ -7,6 +7,7 @@ import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
 import com.lcworld.shopdemo.base.UIManager;
 import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.T_ShopMainActivity;
+import com.lcworld.shopdemo.tsq.ui.main.activity.T_MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -19,10 +20,12 @@ import butterknife.Unbinder;
 public class TGoShoppingFragment extends BaseFragment {
 
     Unbinder unbinder;
+    private T_MainActivity activity;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        activity = (T_MainActivity) context;
     }
 
     @Override

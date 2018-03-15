@@ -5,30 +5,101 @@
     android:background="@color/bg_gray"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/title"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@mipmap/myshop1" />
+        android:layout_height="210dp"
+        android:background="@mipmap/bg_new_my">
 
         <LinearLayout
-            android:id="@+id/ll_back"
-            android:layout_width="@dimen/dp50"
-            android:layout_height="@dimen/dp50"
-            android:paddingLeft="@dimen/space_screen">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="60dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
+                android:id="@+id/iv_my_bg"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop" />
         </LinearLayout>
-    </FrameLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionbar_height"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_back"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/space_screen">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/hfanhui" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/space_screen"
+                    android:paddingRight="@dimen/space_screen"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ic_share_white" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <com.lcworld.shopdemo.base.CircleImageView
+            android:id="@+id/logo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/t_logo" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="万达广场"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_commmon_big" />
+
+        <TextView
+            android:id="@+id/guanzhu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_bg_white_tran"
+            android:paddingBottom="3dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="3dp"
+            android:text="关注"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_small" />
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -79,7 +150,6 @@
                 android:background="@color/narrowlinebg_gray" />
 
             <LinearLayout
-                android:id="@+id/ll_dingdan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"

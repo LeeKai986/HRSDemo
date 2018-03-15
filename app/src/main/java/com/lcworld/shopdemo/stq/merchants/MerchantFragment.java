@@ -5,8 +5,6 @@ import android.view.View;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
-import com.lcworld.shopdemo.base.UIManager;
-import com.lcworld.shopdemo.sh.activity.T_SHMainActivity;
 import com.lcworld.shopdemo.stq.S_MainActivity;
 
 import butterknife.ButterKnife;
@@ -55,14 +53,10 @@ public class MerchantFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.iv1, R.id.iv2})
+    @OnClick({R.id.iv1})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv1:
-                UIManager.turnToAct(getActivity(), T_SHMainActivity.class);
-                break;
-            case R.id.iv2:
-                UIManager.turnToAct(getActivity(), T_SHMainActivity.class);
                 break;
         }
     }

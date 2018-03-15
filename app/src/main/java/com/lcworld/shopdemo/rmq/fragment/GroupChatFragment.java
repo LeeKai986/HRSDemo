@@ -1,12 +1,10 @@
 package com.lcworld.shopdemo.rmq.fragment;
 
 import android.view.View;
-import android.widget.ImageView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.Actionbar;
 import com.lcworld.shopdemo.base.BaseFragment;
-import com.lcworld.shopdemo.rmq.activity.MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -35,14 +33,7 @@ public class GroupChatFragment extends BaseFragment implements Actionbar.Actionb
     protected void initView(View view) {
         //title
         unbinder = ButterKnife.bind(view);
-        final MainActivity activity = (MainActivity) getActivity();
-        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
-        ivmore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.doMore(ivmore);
-            }
-        });
+
     }
 
     @Override

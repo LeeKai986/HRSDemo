@@ -1,14 +1,11 @@
 package com.lcworld.shopdemo.stq.video.activity;
 
 
-import android.view.View;
-
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -41,17 +38,17 @@ public class VideoDetailsActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.back})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.back:
-                finish();
-                break;
-//            case R.id.iv_paly:  //视频播放
-//                UIManager.turnToAct(this, VideoPlayActivity.class);
+//    @OnClick({R.id.ll_back})
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.ll_back:
+//                finish();
 //                break;
-        }
-    }
+////            case R.id.iv_paly:  //视频播放
+////                UIManager.turnToAct(this, VideoPlayActivity.class);
+////                break;
+//        }
+//    }
 
     @Override
     protected boolean setWindowDye() {

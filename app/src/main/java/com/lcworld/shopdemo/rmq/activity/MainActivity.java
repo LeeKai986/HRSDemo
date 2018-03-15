@@ -1,6 +1,5 @@
 package com.lcworld.shopdemo.rmq.activity;
 
-import android.app.Activity;
 import android.os.Process;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -15,8 +14,6 @@ import android.widget.TextView;
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
-import com.lcworld.shopdemo.base.SelectMorePop;
-import com.lcworld.shopdemo.base.UIManager;
 import com.lcworld.shopdemo.rmq.fragment.ContactFragment;
 import com.lcworld.shopdemo.rmq.fragment.FriendsCircleFragment;
 import com.lcworld.shopdemo.rmq.fragment.GroupChatFragment;
@@ -95,22 +92,18 @@ public class MainActivity extends BaseActivity {
     private FriendsCircleFragment friendsCircleFragment;// 朋友圈
     private ContactFragment contactFragment;// 通讯录
     private MyFragment myFragment;// 我的
-    public static Activity mMainActivity = null;
 
     @Override
     protected int setContentView() {
         return R.layout.activity_main;
-
     }
 
     @Override
     protected void initView() {
-        mMainActivity = this;
         ButterKnife.bind(this);
         baseFrameLayout.setState(BaseFrameLayout.STATE_SUCCESS);
 
     }
-
 
     @Override
     protected void initData() {
@@ -267,22 +260,4 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    //右上角三点
-    public void doMore(View actionbar) {
-        //弹出功能pop
-        new SelectMorePop(MainActivity.this, new SelectMorePop.SelectCallBack() {
-            @Override
-            public void onSelected(int more_type) {
-                switch (more_type) {
-                    case 5:
-                        UIManager.turnToAct(MainActivity.this, ChangeChatModeAct.class);
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        }).showAsDropDown(actionbar, 0, 0);
-
-    }
 }

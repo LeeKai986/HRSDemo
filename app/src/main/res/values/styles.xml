@@ -337,8 +337,8 @@
     </style>
 
     <style name="bottom_iv_style2">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">@dimen/main_bottom_in_width2</item>
+        <item name="android:layout_height">@dimen/main_bottom_in_width2</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:scaleType">fitXY</item>
     </style>

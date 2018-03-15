@@ -5,11 +5,9 @@ import android.view.View;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
-import com.lcworld.shopdemo.base.UIManager;
-import com.lcworld.shopdemo.stq.headline.activity.NewsDetailsActivity;
+import com.lcworld.shopdemo.tsq.ui.main.activity.T_MainActivity;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
@@ -19,10 +17,12 @@ import butterknife.Unbinder;
 public class TCommunityFragment extends BaseFragment {
 
     Unbinder unbinder;
+    private T_MainActivity activity;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        activity = (T_MainActivity) context;
     }
 
     @Override
@@ -51,14 +51,6 @@ public class TCommunityFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.iv})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv:
-                UIManager.turnToAct(getActivity(), NewsDetailsActivity.class);
-                break;
-        }
-    }
 
     @Override
     public void onDestroyView() {

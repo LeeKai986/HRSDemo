@@ -111,21 +111,6 @@ public class AppManager {
     }
 
     /**
-     * 结束所有Activity
-     */
-    public void finishTheActivity(Class<?> cls) {
-        try {
-            for (int i = 0, size = activityStack.size(); i < size; i++) {
-                if (!activityStack.get(i).getClass().equals(cls)) {
-                    activityStack.get(i).finish();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * 获取指定的Activity
      */
     public static Activity getActivity(Class<?> cls) {

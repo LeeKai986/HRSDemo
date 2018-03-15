@@ -5,16 +5,13 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.lcworld.shopdemo.R;
-import com.lcworld.shopdemo.base.AppConfig;
 import com.lcworld.shopdemo.base.BaseFragment;
 import com.lcworld.shopdemo.base.SettingBean;
 import com.lcworld.shopdemo.base.UIManager;
 import com.lcworld.shopdemo.rmq.activity.MainActivity;
 import com.lcworld.shopdemo.rmq.adapter.GvSettingAdapter;
-import com.lcworld.shopdemo.stq.CYDActivity;
 import com.lcworld.shopdemo.stq.S_MainActivity;
 import com.lcworld.shopdemo.tsq.ui.main.activity.T_MainActivity;
-import com.lcworld.shopdemo.ybg.activity.T_YBGMainActivity;
 
 import java.util.ArrayList;
 
@@ -71,31 +68,28 @@ public class MyFragment extends BaseFragment {
     protected void initData() {
         //00gv主页面
         //默认是0人脉聊天  1拓商圈   2社团圈   3移动办公
-        switch (AppConfig.getInstance().getMainType()) {
-            case 0:
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
-                break;
-            case 1:
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
-                break;
-            case 2:
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
-                break;
-            case 3:
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
-                break;
-
-            default:
-                break;
-        }
+//        switch (AppConfig.getInstance().getMainType()) {
+//            case 0:
+        mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
+        mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
+        mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
+//                break;
+//            case 1:
+//                mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
+//                mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
+//                mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
+//                break;
+//            case 2:
+//                mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
+//                mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
+//                mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
+//                break;
+//            case 3:
+//                break;
+//
+//            default:
+//                break;
+//        }
         adapter00 = new GvSettingAdapter(getActivity());
         adapter00.setItemList(mList00);
         gv_00.setAdapter(adapter00);
@@ -115,7 +109,7 @@ public class MyFragment extends BaseFragment {
         mList02.add(new SettingBean(R.mipmap.icon_my_new_gzt, "工作台"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_zs, "招商"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_xxzx, "信息中心"));
-        mList02.add(new SettingBean(R.mipmap.icon_my_new_cyd, "创业店"));
+        mList02.add(new SettingBean(R.mipmap.icon_my_new_cyd, "创业的"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_sz, "设置"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_yjhj, "一键呼叫"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_yj, "邮件"));
@@ -135,24 +129,26 @@ public class MyFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (mList00.get(position).name) {
                     case "人脉圈":
-                        AppConfig.getInstance().setMainType(0);
+//                        AppConfig.getInstance().setMainType(0);
                         UIManager.turnToAct(getActivity(), MainActivity.class);
                         getActivity().finish();
                         break;
                     case "拓商圈":
-                        AppConfig.getInstance().setMainType(1);
+//                        AppConfig.getInstance().setMainType(1);
                         UIManager.turnToAct(getActivity(), T_MainActivity.class);
-                        getActivity().finish();
+                        if (!getActivity().getClass().getSimpleName().equals("MainActivity")) {
+                            getActivity().finish();
+                        }
                         break;
                     case "社团圈":
-                        AppConfig.getInstance().setMainType(2);
+//                        AppConfig.getInstance().setMainType(2);
                         UIManager.turnToAct(getActivity(), S_MainActivity.class);
-                        getActivity().finish();
+                        if (!getActivity().getClass().getSimpleName().equals("MainActivity")) {
+                            getActivity().finish();
+                        }
                         break;
                     case "移办公":
-                        AppConfig.getInstance().setMainType(3);
-                        UIManager.turnToAct(getActivity(), T_YBGMainActivity.class);
-                        getActivity().finish();
+                        showToast("暂未开放");
                         break;
                     default:
                         break;
@@ -177,10 +173,6 @@ public class MyFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 5:
-                        //创业店
-                        UIManager.turnToAct(getActivity(), CYDActivity.class);
-                        break;
                     case 6:
                         //设置
 //                        UIManager.turnToAct(getActivity(), RmSettingAct.class);

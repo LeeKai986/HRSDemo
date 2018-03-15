@@ -6,8 +6,8 @@ import android.widget.TextView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
-import com.lcworld.shopdemo.base.UIManager;
-import com.lcworld.shopdemo.sh.activity.OrdersActivity;
+import com.lcworld.shopdemo.base.BaseFrameLayout;
+import com.lcworld.shopdemo.base.CircleImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +20,10 @@ import butterknife.Unbinder;
  */
 public class TMarketMyFragment extends BaseFragment {
 
+    @BindView(R.id.logo)
+    CircleImageView logo;
+    @BindView(R.id.name)
+    TextView name;
     @BindView(R.id.unread_1)
     TextView unread1;
     @BindView(R.id.unread_2)
@@ -59,17 +63,19 @@ public class TMarketMyFragment extends BaseFragment {
     protected void setListener() {
     }
 
-    @OnClick({R.id.ll_dingdan, R.id.ll_zj, R.id.ll_sc, R.id.ll_kf, R.id.ll_zs, R.id.ll_zp, R.id.ll_dz, R.id.ll_xxzx, R.id.ll_gywm, R.id.ll_back, R.id.dingdan, R.id.ll_1, R.id.ll_2, R.id.ll_31, R.id.ll_4, R.id.ll_5})
+    @OnClick({R.id.ll_zj, R.id.ll_sc, R.id.ll_kf, R.id.ll_zs, R.id.ll_zp, R.id.ll_dz, R.id.ll_xxzx, R.id.ll_gywm, R.id.iv_my_bg, R.id.ll_back, R.id.iv_share, R.id.guanzhu, R.id.dingdan, R.id.ll_1, R.id.ll_2, R.id.ll_31, R.id.ll_4, R.id.ll_5})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.iv_my_bg:
+                break;
             case R.id.ll_back:
                 getActivity().finish();
                 break;
-            case R.id.dingdan:
-                UIManager.turnToAct(getActivity(), OrdersActivity.class);
+            case R.id.iv_share:
                 break;
-            case R.id.ll_dingdan:
-                UIManager.turnToAct(getActivity(), OrdersActivity.class);
+            case R.id.guanzhu:
+                break;
+            case R.id.dingdan:
                 break;
             case R.id.ll_1:
                 break;
