@@ -6,18 +6,21 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
+import com.lcworld.shopdemo.base.UIManager;
 import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.bean.SwipeCardBean;
 import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.bean.TanTanCallback;
 import com.mcxtzhang.commonadapter.rv.CommonAdapter;
+import com.mcxtzhang.commonadapter.rv.OnItemClickListener;
 import com.mcxtzhang.commonadapter.rv.ViewHolder;
 import com.mcxtzhang.layoutmanager.swipecard.CardConfig;
 import com.mcxtzhang.layoutmanager.swipecard.OverLayCardLayoutManager;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,6 +36,8 @@ public class TGoodsCardCategoryActivity extends BaseActivity {
 
     @BindView(R.id.rv)
     RecyclerView mRv;
+    @BindView(R.id.tv1)
+    TextView tv1;
     Unbinder unbinder1;
     CommonAdapter<SwipeCardBean> mAdapter;
     List<SwipeCardBean> mDatas;
@@ -46,7 +51,27 @@ public class TGoodsCardCategoryActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
         baseFrameLayout.setState(BaseFrameLayout.STATE_SUCCESS);
-        initFragmentPager();
+        tv1.getPaint().setFakeBoldText(true);
+        int flag = getIntent().getExtras().getInt("flag");
+        switch (flag) {
+            case 0:
+                tv1.setText("新款预售");
+                break;
+            case 1:
+                tv1.setText("新款预售");
+                break;
+            case 2:
+                tv1.setText("最新优惠");
+                break;
+            case 3:
+                tv1.setText("联盟消费");
+                break;
+            case 4:
+                tv1.setText("私人订制");
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -72,7 +97,12 @@ public class TGoodsCardCategoryActivity extends BaseActivity {
 
             @Override
             public void convert(ViewHolder viewHolder, SwipeCardBean swipeCardBean) {
-                Log.d(TAG, "convert() called with: viewHolder = [" + viewHolder + "], swipeCardBean = [" + swipeCardBean + "]");
+                ImageView iv = (ImageView) viewHolder.getView(R.id.iv);
+                if (swipeCardBean.getPostition() % 2 == 0) {
+                    iv.setImageResource(R.mipmap.xkys);
+                } else {
+                    iv.setImageResource(R.mipmap.srdz);
+                }
             }
         });
 
@@ -85,26 +115,19 @@ public class TGoodsCardCategoryActivity extends BaseActivity {
 
         final ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(mRv);
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup viewGroup, View view, Object o, int i) {
+                UIManager.turnToAct(TGoodsCardCategoryActivity.this, GoodsDetailActivity.class);
+            }
 
+            @Override
+            public boolean onItemLongClick(ViewGroup viewGroup, View view, Object o, int i) {
+                return false;
+            }
+        });
     }
 
-    private void initFragmentPager() {
-    }
-
-
-    /**
-     * 标题集合
-     */
-    private ArrayList<String> getTitles() {
-        ArrayList<String> titles = new ArrayList<>();
-        titles.add("分类1");
-        titles.add("分类2");
-        titles.add("分类3");
-        titles.add("分类4");
-        titles.add("分类5");
-        titles.add("分类6");
-        return titles;
-    }
 
     @Override
     protected void setListener() {
@@ -121,13 +144,11 @@ public class TGoodsCardCategoryActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.ll_back, R.id.iv_search})
+    @OnClick({R.id.back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.ll_back:
+            case R.id.back:
                 finish();
-                break;
-            case R.id.iv_search:
                 break;
         }
     }

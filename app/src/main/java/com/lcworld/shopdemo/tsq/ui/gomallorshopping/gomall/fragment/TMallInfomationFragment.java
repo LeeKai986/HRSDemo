@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
+import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.stq.headline.activity.NewsDetailsActivity;
 import com.lcworld.shopdemo.tsq.ui.gomallorshopping.gomall.activity.T_MarketMainActivity;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,7 +60,7 @@ public class TMallInfomationFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.ll_back, R.id.iv_search, R.id.iv_history, R.id.shangchang, R.id.shangjia})
+    @OnClick({R.id.ll_back, R.id.iv_search, R.id.iv_history, R.id.shangchang, R.id.shangjia, R.id.iv1})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_back:
@@ -73,6 +73,9 @@ public class TMallInfomationFragment extends BaseFragment {
             case R.id.shangchang:
                 break;
             case R.id.shangjia:
+                break;
+            case R.id.iv1:
+                UIManager.turnToAct(getActivity(), NewsDetailsActivity.class);
                 break;
         }
     }

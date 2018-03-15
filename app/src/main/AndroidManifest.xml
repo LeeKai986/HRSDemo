@@ -3,6 +3,7 @@
     package="com.lcworld.shopdemo">
 
     <application
+        android:name="com.lcworld.shopdemo.base.application.CCApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/icon_logo"
@@ -12,16 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".rmq.activity.MainActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateUnspecified|adjustResize">
+            android:name="com.lcworld.shopdemo.base.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".rmq.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustResize"></activity>
 
         <activity
             android:name="com.lcworld.shopdemo.rmq.activity.SingleChatActivity"
@@ -101,6 +105,46 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name="com.lcworld.shopdemo.stq.nearby.activity.SwitchLocationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.sh.activity.T_SHMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.ybg.activity.T_YBGMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.stq.CYDActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.sh.activity.OrdersActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.T_QYMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.GoodsDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.TGoodsCardCategoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.rmq.activity.ChangeChatModeAct"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme_chat"
             android:windowSoftInputMode="adjustPan|stateHidden" />

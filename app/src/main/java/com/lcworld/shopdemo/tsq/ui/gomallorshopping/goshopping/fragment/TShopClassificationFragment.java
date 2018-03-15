@@ -2,13 +2,12 @@ package com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.fragment;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
-import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.T_ShopMainActivity;
+import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.GoodsDetailActivity;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -19,15 +18,11 @@ import butterknife.Unbinder;
  */
 public class TShopClassificationFragment extends BaseFragment {
 
-    @BindView(R.id.iva)
-    ImageView iva;
     Unbinder unbinder;
-    private T_ShopMainActivity activity;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        activity = (T_ShopMainActivity) context;
     }
 
     @Override
@@ -57,13 +52,16 @@ public class TShopClassificationFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.ll_back, R.id.iv_search})
+    @OnClick({R.id.ll_back, R.id.iv2, R.id.iv3, R.id.iv4})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_back:
                 getActivity().finish();
                 break;
-            case R.id.iv_search:
+            case R.id.iv2:
+            case R.id.iv3:
+            case R.id.iv4:
+                UIManager.turnToAct(getActivity(), GoodsDetailActivity.class);
                 break;
         }
     }

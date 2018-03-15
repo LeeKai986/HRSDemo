@@ -1,11 +1,15 @@
 package com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.fragment;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
-import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.T_ShopMainActivity;
+import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.GoodsDetailActivity;
+import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.TGoodsCardCategoryActivity;
+import com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.activity.T_QYMainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -18,12 +22,11 @@ import butterknife.Unbinder;
 public class TShopHomeFragment extends BaseFragment {
 
     Unbinder unbinder;
-    private T_ShopMainActivity activity;
+
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        activity = (T_ShopMainActivity) context;
     }
 
     @Override
@@ -53,13 +56,44 @@ public class TShopHomeFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.ll_back, R.id.iv_search})
+    @OnClick({R.id.ll_back, R.id.iv35, R.id.iv31, R.id.iv32, R.id.iv33, R.id.iv34, R.id.iv6, R.id.iv7, R.id.iv8, R.id.iv9, R.id.iv10, R.id.iv11, R.id.iv12})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_back:
                 getActivity().finish();
                 break;
-            case R.id.iv_search:
+            case R.id.iv35:
+                UIManager.turnToAct(getActivity(), T_QYMainActivity.class);
+
+                break;
+            case R.id.iv31:
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("flag", 1);
+                UIManager.turnToAct(getActivity(), TGoodsCardCategoryActivity.class, bundle1);
+                break;
+            case R.id.iv32:
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("flag", 2);
+                UIManager.turnToAct(getActivity(), TGoodsCardCategoryActivity.class, bundle2);
+                break;
+            case R.id.iv33:
+                Bundle bundle3 = new Bundle();
+                bundle3.putInt("flag", 3);
+                UIManager.turnToAct(getActivity(), TGoodsCardCategoryActivity.class, bundle3);
+                break;
+            case R.id.iv34:
+                Bundle bundle4 = new Bundle();
+                bundle4.putInt("flag", 4);
+                UIManager.turnToAct(getActivity(), TGoodsCardCategoryActivity.class, bundle4);
+                break;
+            case R.id.iv6:
+            case R.id.iv7:
+            case R.id.iv8:
+            case R.id.iv9:
+            case R.id.iv10:
+            case R.id.iv11:
+            case R.id.iv12:
+                UIManager.turnToAct(getActivity(), GoodsDetailActivity.class);
                 break;
         }
     }

@@ -6,8 +6,6 @@ import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.Actionbar;
 import com.lcworld.shopdemo.base.BaseFragment;
 
-import butterknife.Unbinder;
-
 
 /**
  * 创建：duke
@@ -17,7 +15,6 @@ import butterknife.Unbinder;
  */
 public class FriendsCircleFragment extends BaseFragment implements View.OnClickListener, Actionbar.ActionbarOnClickListener, Actionbar.ActionBarOnLongClickListener {
 
-    Unbinder unbinder;
 
     @Override
     protected int setContentView() {
@@ -178,6 +175,5 @@ public class FriendsCircleFragment extends BaseFragment implements View.OnClickL
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
     }
 }

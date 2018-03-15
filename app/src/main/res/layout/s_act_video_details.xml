@@ -16,12 +16,11 @@
             android:scaleType="fitXY"
             android:src="@mipmap/spxq" />
 
-        <!--<ImageView-->
-        <!--android:id="@+id/back"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:scaleType="fitXY"-->
-        <!--android:src="@mipmap/spfh" />-->
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY" />
     </FrameLayout>
 
 
