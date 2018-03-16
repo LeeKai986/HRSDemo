@@ -2,6 +2,7 @@ package com.lcworld.shopdemo.stq.merchants;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
@@ -43,6 +44,14 @@ public class MerchantFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         unbinder = ButterKnife.bind(this, view);
+        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
+        final S_MainActivity activity = (S_MainActivity) getActivity();
+        ivmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.doMore(ivmore);
+            }
+        });
     }
 
     @Override

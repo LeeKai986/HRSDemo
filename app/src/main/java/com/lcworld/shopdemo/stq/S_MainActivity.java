@@ -1,6 +1,7 @@
 package com.lcworld.shopdemo.stq;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -17,7 +18,10 @@ import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
 import com.lcworld.shopdemo.base.CommonUtil;
+import com.lcworld.shopdemo.base.SelectMorePop;
 import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.rmq.activity.ChangeChatModeAct;
+import com.lcworld.shopdemo.rmq.activity.MainActivity;
 import com.lcworld.shopdemo.rmq.fragment.MyFragment;
 import com.lcworld.shopdemo.stq.headline.HeadlineFragment;
 import com.lcworld.shopdemo.stq.headline.activity.NewsSearchActivity;
@@ -91,6 +95,7 @@ public class S_MainActivity extends BaseActivity {
     private MerchantFragment cFragment;// 招商
     private MyFragment mFragment;// 我的
     private Unbinder unbinder;
+    public static Activity mMainActivity = null;
 
     @Override
     protected int setContentView() {
@@ -99,6 +104,7 @@ public class S_MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        mMainActivity = this;
         unbinder = ButterKnife.bind(this);
         baseFrameLayout.setState(BaseFrameLayout.STATE_SUCCESS);
     }
@@ -287,7 +293,24 @@ public class S_MainActivity extends BaseActivity {
         }
     }
 
+    //右上角三点
+    public void doMore(View actionbar) {
+        //弹出功能pop
+        new SelectMorePop(S_MainActivity.this, new SelectMorePop.SelectCallBack() {
+            @Override
+            public void onSelected(int more_type) {
+                switch (more_type) {
+                    case 5:
+                        UIManager.turnToAct(S_MainActivity.this, ChangeChatModeAct.class);
+                        break;
 
+                    default:
+                        break;
+                }
+            }
+        }).showAsDropDown(actionbar, 0, 0);
+
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

@@ -1,6 +1,7 @@
 package com.lcworld.shopdemo.tsq.ui.main.activity;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -17,6 +18,9 @@ import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
 import com.lcworld.shopdemo.base.CommonUtil;
+import com.lcworld.shopdemo.base.SelectMorePop;
+import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.rmq.activity.ChangeChatModeAct;
 import com.lcworld.shopdemo.rmq.fragment.MyFragment;
 import com.lcworld.shopdemo.tsq.ui.main.fragment.TCommunityFragment;
 import com.lcworld.shopdemo.tsq.ui.main.fragment.TGoMallsFragment;
@@ -85,6 +89,7 @@ public class T_MainActivity extends BaseActivity {
     private TGoShoppingFragment gsFragment;// 逛街
     private MyFragment mFragment;// 我的
     private Unbinder unbinder;
+    public static Activity mMainActivity = null;
 
     @Override
     protected int setContentView() {
@@ -93,6 +98,7 @@ public class T_MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        mMainActivity = this;
         unbinder = ButterKnife.bind(this);
         baseFrameLayout.setState(BaseFrameLayout.STATE_SUCCESS);
     }
@@ -278,11 +284,29 @@ public class T_MainActivity extends BaseActivity {
         }
     }
 
-//    //切换版本用   //默认是0人脉聊天  1拓商圈   2社团圈   3移动办公
+    //    //切换版本用   //默认是0人脉聊天  1拓商圈   2社团圈   3移动办公
 //    @Subscribe
 //    public void onEventMainThread(EventChangeMainTypeFinish event) {
 //        finish();
 //    }
+//右上角三点
+    public void doMore(View actionbar) {
+        //弹出功能pop
+        new SelectMorePop(T_MainActivity.this, new SelectMorePop.SelectCallBack() {
+            @Override
+            public void onSelected(int more_type) {
+                switch (more_type) {
+                    case 5:
+                        UIManager.turnToAct(T_MainActivity.this, ChangeChatModeAct.class);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }).showAsDropDown(actionbar, 0, 0);
+
+    }
 
     @Override
     public void onDestroy() {

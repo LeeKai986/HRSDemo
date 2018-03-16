@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
 import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.rmq.activity.MainActivity;
 import com.lcworld.shopdemo.stq.S_MainActivity;
 import com.lcworld.shopdemo.stq.headline.activity.NewsDetailsActivity;
 
@@ -62,6 +63,15 @@ public class HeadlineFragment extends BaseFragment {
                 UIManager.turnToAct(getActivity(), NewsDetailsActivity.class);
             }
         });
+        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
+        final S_MainActivity activity = (S_MainActivity) getActivity();
+        ivmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.doMore(ivmore);
+            }
+        });
+
     }
 
 

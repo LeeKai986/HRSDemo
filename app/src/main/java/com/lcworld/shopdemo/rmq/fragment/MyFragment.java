@@ -3,12 +3,15 @@ package com.lcworld.shopdemo.rmq.fragment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.AppConfig;
 import com.lcworld.shopdemo.base.BaseFragment;
+import com.lcworld.shopdemo.base.SelectMorePop_my;
 import com.lcworld.shopdemo.base.SettingBean;
 import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.rmq.activity.ChangeChatModeAct;
 import com.lcworld.shopdemo.rmq.activity.MainActivity;
 import com.lcworld.shopdemo.rmq.adapter.GvSettingAdapter;
 import com.lcworld.shopdemo.stq.CYDActivity;
@@ -41,6 +44,8 @@ public class MyFragment extends BaseFragment {
     GridView gv_01;
     @BindView(R.id.gv_02)
     GridView gv_02;
+    @BindView(R.id.iv_top)
+    ImageView ivTop;
 //    @BindView(R.id.tv_yjhj_count)
 //    TextView tv_yjhj_count;
 
@@ -63,7 +68,26 @@ public class MyFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         ButterKnife.bind(this, view);
+        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
+        ivmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                //弹出功能pop
+                new SelectMorePop_my(getActivity(), new SelectMorePop_my.SelectCallBack() {
+                    @Override
+                    public void onSelected(int more_type) {
+                        switch (more_type) {
+                            case 5:
+                                UIManager.turnToAct(getActivity(), ChangeChatModeAct.class);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }).showAsDropDown(ivmore, 0, 0);
+            }
+        });
     }
 
 
@@ -76,16 +100,19 @@ public class MyFragment extends BaseFragment {
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
+                ivTop.setImageResource(R.mipmap.wd_db);
                 break;
             case 1:
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
+                ivTop.setImageResource(R.mipmap.tsqmy01);
                 break;
             case 2:
+                mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_ybg, "移办公"));
-                mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
+                ivTop.setImageResource(R.mipmap.stqmy01);
                 break;
             case 3:
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
@@ -99,27 +126,43 @@ public class MyFragment extends BaseFragment {
         adapter00 = new GvSettingAdapter(getActivity());
         adapter00.setItemList(mList00);
         gv_00.setAdapter(adapter00);
+        switch (AppConfig.getInstance().getMainType()) {
+            //默认是0人脉聊天  1拓商圈   2社团圈
+            case 0:
+                mList02.add(new SettingBean(R.mipmap.my_share, "分享"));//分享
+//                mList02.add(new SettingBean(R.mipmap.icon_my_new_zp, "招聘"));
+                break;
+            case 1:
+                mList02.add(new SettingBean(R.mipmap.icon_my_new_cyd, "创业店"));
+                break;
+            case 2:
+                mList02.add(new SettingBean(R.mipmap.icon_my_new_cyd, "创业店"));
+                break;
+
+            default:
+                break;
+        }
         //01gv
         mList01.add(new SettingBean(R.mipmap.icon_my_new_dd, "订单"));
         mList01.add(new SettingBean(R.mipmap.icon_my_new_gwc, "购物车"));
         mList01.add(new SettingBean(R.mipmap.icon_my_new_sc, "收藏"));
-        mList01.add(new SettingBean(R.mipmap.icon_my_new_zj, "足迹"));
+        mList01.add(new SettingBean(R.mipmap.icon_my_new_yjhj, "一键呼叫"));
         mList01.add(new SettingBean(R.mipmap.icon_my_new_kb, "卡包"));
         mList01.add(new SettingBean(R.mipmap.icon_my_new_gz, "关注"));
         adapter01 = new GvSettingAdapter(getActivity());
         adapter01.setItemList(mList01);
         gv_01.setAdapter(adapter01);
+
         //02gv
-        mList02.add(new SettingBean(R.mipmap.icon_my_new_zp, "招聘"));
-        mList02.add(new SettingBean(R.mipmap.icon_my_new_dzb, "地址簿"));
-        mList02.add(new SettingBean(R.mipmap.icon_my_new_gzt, "工作台"));
-        mList02.add(new SettingBean(R.mipmap.icon_my_new_zs, "招商"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_xxzx, "信息中心"));
-        mList02.add(new SettingBean(R.mipmap.icon_my_new_cyd, "创业店"));
+        mList02.add(new SettingBean(R.mipmap.icon_my_new_dzb, "地址簿"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_sz, "设置"));
-        mList02.add(new SettingBean(R.mipmap.icon_my_new_yjhj, "一键呼叫"));
+        mList02.add(new SettingBean(R.mipmap.icon_my_new_zj, "足迹"));
         mList02.add(new SettingBean(R.mipmap.icon_my_new_yj, "邮件"));
-        mList02.add(new SettingBean(R.mipmap.gy, "关于互融商"));
+        mList02.add(new SettingBean(R.mipmap.abouthrs, "关于互融商"));
+        // mList02.add(new SettingBean(R.mipmap.icon_my_new_gzt, "工作台"));
+        // mList02.add(new SettingBean(R.mipmap.icon_my_new_zs, "招商"));
+        // mList02.add(new SettingBean(R.mipmap.icon_my_new_cyd, "创业店"));
         adapter02 = new GvSettingAdapter(getActivity());
         adapter02.setItemList(mList02);
         gv_02.setAdapter(adapter02);
@@ -177,9 +220,11 @@ public class MyFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 5:
+                    case 0:
                         //创业店
-                        UIManager.turnToAct(getActivity(), CYDActivity.class);
+                        if (AppConfig.getInstance().getMainType() != 0) {
+                            UIManager.turnToAct(getActivity(), CYDActivity.class);
+                        }
                         break;
                     case 6:
                         //设置
@@ -196,6 +241,7 @@ public class MyFragment extends BaseFragment {
 
             }
         });
+
     }
 
 

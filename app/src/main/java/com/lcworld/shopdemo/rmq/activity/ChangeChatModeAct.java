@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.Actionbar;
 import com.lcworld.shopdemo.base.AppConfig;
-import com.lcworld.shopdemo.base.AppManager;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
 import com.lcworld.shopdemo.base.UIManager;
@@ -95,16 +94,15 @@ public class ChangeChatModeAct extends BaseActivity {
             switch (type) {
                 case 0:
                     MainActivity.mMainActivity.finish();
-//                    AppManager.getAppManager().finishTheActivity(MainActivity.class);
                     break;
                 case 1:
-                    AppManager.getAppManager().finishTheActivity(T_MainActivity.class);
+                    T_MainActivity.mMainActivity.finish();
                     break;
                 case 2:
-                    AppManager.getAppManager().finishTheActivity(S_MainActivity.class);
+                    S_MainActivity.mMainActivity.finish();
                     break;
                 case 3:
-                    AppManager.getAppManager().finishTheActivity(T_YBGMainActivity.class);
+                    T_YBGMainActivity.mMainActivity.finish();
                     break;
                 default:
                     break;
@@ -141,7 +139,7 @@ public class ChangeChatModeAct extends BaseActivity {
         return false;
     }
 
-    @OnClick({R.id.iv_rmq, R.id.iv_tsq, R.id.iv_stq})
+    @OnClick({R.id.iv_rmq, R.id.iv_tsq, R.id.iv_stq, R.id.iv_ybg})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_rmq:

@@ -1,6 +1,7 @@
 package com.lcworld.shopdemo.tsq.ui.gomallorshopping.goshopping.fragment;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
 
 import com.lcworld.shopdemo.R;
@@ -62,7 +63,9 @@ public class TQYHomeFragment extends BaseFragment {
                 break;
             case R.id.iv35:
             case R.id.iv31:
-                UIManager.turnToAct(getActivity(), TGoodsCardCategoryActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("flag", 1);
+                UIManager.turnToAct(getActivity(), TGoodsCardCategoryActivity.class, bundle1);
                 break;
             case R.id.iv5:
                 UIManager.turnToAct(getActivity(), GoodsDetailActivity.class);

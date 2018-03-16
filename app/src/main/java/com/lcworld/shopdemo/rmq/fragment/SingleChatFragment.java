@@ -32,10 +32,8 @@ public class SingleChatFragment extends BaseFragment implements Actionbar.Action
 
     @Override
     protected void initView(View view) {
-        final MainActivity activity = (MainActivity) getActivity();
         ImageView iv1 = (ImageView) view.findViewById(R.id.iv1);
         ImageView iv2 = (ImageView) view.findViewById(R.id.iv2);
-        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
         iv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +48,8 @@ public class SingleChatFragment extends BaseFragment implements Actionbar.Action
                 UIManager.turnToAct(getActivity(), SingleChatActivity.class);
             }
         });
+        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
+        final MainActivity activity = (MainActivity) getActivity();
         ivmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

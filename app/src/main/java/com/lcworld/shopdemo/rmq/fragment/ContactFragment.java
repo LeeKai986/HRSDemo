@@ -5,9 +5,7 @@ import android.widget.ImageView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
-
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import com.lcworld.shopdemo.rmq.activity.MainActivity;
 
 /**
  * 创建：duke
@@ -35,6 +33,14 @@ public class ContactFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
+        final MainActivity activity = (MainActivity) getActivity();
+        ivmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.doMore(ivmore);
             }
         });
 //        mActionbar.setListener(new Actionbar.ActionbarOnClickListener() {

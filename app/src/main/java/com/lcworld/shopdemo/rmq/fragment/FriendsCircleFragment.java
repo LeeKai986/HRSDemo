@@ -1,10 +1,12 @@
 package com.lcworld.shopdemo.rmq.fragment;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.Actionbar;
 import com.lcworld.shopdemo.base.BaseFragment;
+import com.lcworld.shopdemo.rmq.activity.MainActivity;
 
 
 /**
@@ -29,6 +31,14 @@ public class FriendsCircleFragment extends BaseFragment implements View.OnClickL
     @Override
     protected void initView(View view) {
 //        initRightTwo(view);
+        final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
+        final MainActivity activity = (MainActivity) getActivity();
+        ivmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.doMore(ivmore);
+            }
+        });
     }
 
     @Override

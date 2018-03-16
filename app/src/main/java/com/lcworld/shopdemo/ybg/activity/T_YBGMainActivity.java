@@ -1,6 +1,7 @@
 package com.lcworld.shopdemo.ybg.activity;
 
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -11,6 +12,9 @@ import android.widget.LinearLayout;
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
+import com.lcworld.shopdemo.base.SelectMorePop;
+import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.rmq.activity.ChangeChatModeAct;
 import com.lcworld.shopdemo.ybg.fragment.SYBGMyFragment;
 import com.lcworld.shopdemo.ybg.fragment.SYBGfourFragment;
 import com.lcworld.shopdemo.ybg.fragment.SYBGoneFragment;
@@ -61,6 +65,7 @@ public class T_YBGMainActivity extends BaseActivity {
     private SYBGfourFragment gsFragment;// 4
     private SYBGMyFragment mFragment;// 我的
     private Unbinder unbinder;
+    public static Activity mMainActivity = null;
 
     @Override
     protected int setContentView() {
@@ -69,6 +74,7 @@ public class T_YBGMainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        mMainActivity = this;
         unbinder = ButterKnife.bind(this);
         baseFrameLayout.setState(BaseFrameLayout.STATE_SUCCESS);
     }
@@ -191,6 +197,24 @@ public class T_YBGMainActivity extends BaseActivity {
         }
     }
 
+    //右上角三点
+    public void doMore(View actionbar) {
+        //弹出功能pop
+        new SelectMorePop(T_YBGMainActivity.this, new SelectMorePop.SelectCallBack() {
+            @Override
+            public void onSelected(int more_type) {
+                switch (more_type) {
+                    case 5:
+                        UIManager.turnToAct(T_YBGMainActivity.this, ChangeChatModeAct.class);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }).showAsDropDown(actionbar, 0, 0);
+
+    }
 
     /**
      * 双击退出函数
