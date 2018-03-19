@@ -55,12 +55,22 @@
 
             </RelativeLayout>
 
-
-            <ImageView
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY"
-                android:src="@mipmap/ybgwd02" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ybgwd02" />
+
+                <ImageView
+                    android:id="@+id/ivset"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom" />
+            </FrameLayout>
 
 
         </LinearLayout>

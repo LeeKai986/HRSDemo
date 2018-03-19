@@ -11,6 +11,7 @@ import com.lcworld.shopdemo.base.BaseFragment;
 import com.lcworld.shopdemo.base.SelectMorePop_my;
 import com.lcworld.shopdemo.base.SettingBean;
 import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.pt.activity.T_PTMainActivity;
 import com.lcworld.shopdemo.rmq.activity.ChangeChatModeAct;
 import com.lcworld.shopdemo.rmq.activity.MainActivity;
 import com.lcworld.shopdemo.rmq.adapter.GvSettingAdapter;
@@ -118,6 +119,7 @@ public class MyFragment extends BaseFragment {
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_stq, "社团圈"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_rmq, "人脉圈"));
                 mList00.add(new SettingBean(R.mipmap.icon_my_new_tsq, "拓商圈"));
+                ivTop.setImageResource(R.mipmap.ybgmy001);
                 break;
 
             default:
@@ -137,6 +139,9 @@ public class MyFragment extends BaseFragment {
                 break;
             case 2:
                 mList02.add(new SettingBean(R.mipmap.icon_my_new_cyd, "创业店"));
+                break;
+            case 3:
+                mList02.add(new SettingBean(R.mipmap.icon_my_new_gzt, "工作台"));
                 break;
 
             default:
@@ -194,7 +199,7 @@ public class MyFragment extends BaseFragment {
                         break;
                     case "移办公":
                         AppConfig.getInstance().setMainType(3);
-                        UIManager.turnToAct(getActivity(), T_YBGMainActivity.class);
+                        UIManager.turnToAct(getActivity(), T_PTMainActivity.class);
                         getActivity().finish();
                         break;
                     default:
@@ -222,8 +227,10 @@ public class MyFragment extends BaseFragment {
                 switch (position) {
                     case 0:
                         //创业店
-                        if (AppConfig.getInstance().getMainType() != 0) {
+                        if (AppConfig.getInstance().getMainType() == 1 || AppConfig.getInstance().getMainType() == 2) {
                             UIManager.turnToAct(getActivity(), CYDActivity.class);
+                        } else if (AppConfig.getInstance().getMainType() == 3) {
+                            UIManager.turnToAct(getActivity(), T_YBGMainActivity.class);
                         }
                         break;
                     case 6:

@@ -101,7 +101,7 @@ public class TGoodsCardCategoryActivity extends BaseActivity {
             @Override
             public void convert(ViewHolder viewHolder, SwipeCardBean swipeCardBean) {
                 CardView cardview = (CardView) viewHolder.getView(R.id.cardview);
-                int height = DensityUtils.getHeight(mContext) - DensityUtils.dip2px(mContext, 120);
+                int height = DensityUtils.getHeight(mContext) - DensityUtils.dip2px(mContext, 160);
                 cardview.setLayoutParams(new ActionMenuView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, height));
                 ImageView iv = (ImageView) viewHolder.getView(R.id.iv);
                 if (swipeCardBean.getPostition() == 0 || swipeCardBean.getPostition() == 3 || swipeCardBean.getPostition() == 6) {

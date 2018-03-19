@@ -6,9 +6,7 @@ import android.widget.ImageView;
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.Actionbar;
 import com.lcworld.shopdemo.base.BaseFragment;
-import com.lcworld.shopdemo.base.UIManager;
 import com.lcworld.shopdemo.rmq.activity.MainActivity;
-import com.lcworld.shopdemo.rmq.activity.SingleChatActivity;
 
 
 /**
@@ -38,14 +36,14 @@ public class SingleChatFragment extends BaseFragment implements Actionbar.Action
             @Override
             public void onClick(View v) {
 
-                UIManager.turnToAct(getActivity(), SingleChatActivity.class);
+//                UIManager.turnToAct(getActivity(), SingleChatActivity.class);
             }
         });
         iv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                UIManager.turnToAct(getActivity(), SingleChatActivity.class);
+//                UIManager.turnToAct(getActivity(), SingleChatActivity.class);
             }
         });
         final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);

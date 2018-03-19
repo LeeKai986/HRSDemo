@@ -8,10 +8,10 @@ import android.view.KeyEvent;
 import android.view.WindowManager;
 
 import com.lcworld.shopdemo.R;
+import com.lcworld.shopdemo.pt.activity.T_PTMainActivity;
 import com.lcworld.shopdemo.rmq.activity.MainActivity;
 import com.lcworld.shopdemo.stq.S_MainActivity;
 import com.lcworld.shopdemo.tsq.ui.main.activity.T_MainActivity;
-import com.lcworld.shopdemo.ybg.activity.T_YBGMainActivity;
 
 
 /**
@@ -45,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
                             UIManager.turnToAct(SplashActivity.this, S_MainActivity.class);
                             break;
                         case 3:
-                            UIManager.turnToAct(SplashActivity.this, T_YBGMainActivity.class);
+                            UIManager.turnToAct(SplashActivity.this, T_PTMainActivity.class);
                             break;
                         default:
                             break;

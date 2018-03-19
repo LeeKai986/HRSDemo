@@ -148,6 +148,51 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme_chat"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.ybg.activity.YBGsettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.ybg.activity.YBGXxtzActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.ybg.activity.KQActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.ybg.activity.KQTXActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.ybg.activity.QJActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.pt.activity.T_PTMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.pt.activity.ZPDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.pt.activity.WDJLActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.lcworld.shopdemo.pt.activity.TDJLActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme_chat"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <!--社团圈end-->
 
         <!--华丽的分割线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线线-->

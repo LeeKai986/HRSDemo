@@ -9,6 +9,7 @@ import com.lcworld.shopdemo.base.AppConfig;
 import com.lcworld.shopdemo.base.BaseActivity;
 import com.lcworld.shopdemo.base.BaseFrameLayout;
 import com.lcworld.shopdemo.base.UIManager;
+import com.lcworld.shopdemo.pt.activity.T_PTMainActivity;
 import com.lcworld.shopdemo.stq.S_MainActivity;
 import com.lcworld.shopdemo.tsq.ui.main.activity.T_MainActivity;
 import com.lcworld.shopdemo.ybg.activity.T_YBGMainActivity;
@@ -102,6 +103,7 @@ public class ChangeChatModeAct extends BaseActivity {
                     S_MainActivity.mMainActivity.finish();
                     break;
                 case 3:
+                    T_PTMainActivity.mMainActivity.finish();
                     T_YBGMainActivity.mMainActivity.finish();
                     break;
                 default:
@@ -120,7 +122,7 @@ public class ChangeChatModeAct extends BaseActivity {
                     UIManager.turnToAct(this, S_MainActivity.class);
                     break;
                 case 3:
-                    UIManager.turnToAct(this, T_YBGMainActivity.class);
+                    UIManager.turnToAct(this, T_PTMainActivity.class);
                     break;
                 default:
                     break;

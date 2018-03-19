@@ -48,6 +48,7 @@
     <!--拓商圈颜色-->
     <color name="theme_tsq">#F36D18</color>
     <color name="theme_tsq_market">#0876D5</color>
+    <color name="ybgblue">#49A4FF</color>
     <color name="widelinebg_gray">#F5F5F5</color>
     <color name="narrowlinebg_gray">#E5E5E5</color>
     <color name="shop_more">#ECF1F7</color>

@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/ivmore"
             android:layout_width="30dp"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_gravity="right" />
     </FrameLayout>
 

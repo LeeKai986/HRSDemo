@@ -6,7 +6,9 @@ import android.widget.ImageView;
 
 import com.lcworld.shopdemo.R;
 import com.lcworld.shopdemo.base.BaseFragment;
+import com.lcworld.shopdemo.base.UIManager;
 import com.lcworld.shopdemo.ybg.activity.T_YBGMainActivity;
+import com.lcworld.shopdemo.ybg.activity.YBGsettingActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -39,10 +41,17 @@ public class SYBGMyFragment extends BaseFragment {
         unbinder = ButterKnife.bind(this, view);
         final T_YBGMainActivity activity = (T_YBGMainActivity) getActivity();
         final ImageView ivmore = (ImageView) view.findViewById(R.id.ivmore);
+        final ImageView ivset = (ImageView) view.findViewById(R.id.ivset);
         ivmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activity.doMore(ivmore);
+            }
+        });
+        ivset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIManager.turnToAct(getActivity(), YBGsettingActivity.class);
             }
         });
     }
